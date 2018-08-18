@@ -1,1 +1,1 @@
-print("Test program")
+print("Test program.")
