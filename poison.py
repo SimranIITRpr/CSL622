@@ -10,6 +10,12 @@ Group Memebers:
 Nitin Gandhi 2016csb1045
 Paras Kumar 2016csb1047
 Akshat Rathore 2016csb1030
+
+Test Run:
+>>python3 poison.py 
+Enter file name: 
+pagerank.txt
+Best node to poison the graph is: 3
 '''
 import collections
 
@@ -47,7 +53,10 @@ edgeArray = []
 
 #list of vertices
 vertexArray = []
-f = open("pagerank.txt")
+
+print ("Enter file name: ")
+file_name = input()
+f = open(file_name)
 
 #filling data in above two lists
 for l in f:
@@ -91,4 +100,4 @@ for v in vertexArray:
 			max = val
 			best_vertex = v
 #Final result
-print (best_vertex)
+print ("Best node to poison the graph is: " + str(best_vertex))
