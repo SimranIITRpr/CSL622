@@ -1,5 +1,5 @@
 """
-@author: Meghana Batchu, Sainath Thota, Yugandhar Bandi
+@author: Meghana Batchu(2016csb1034), Sainath Thota(2015csb1037), Yugandhar Bandi(2015csb1009)
 """
 
 #The question is that we find the smallest ranked number node on whose removal the leader (top person after application of page rank)changes its position
