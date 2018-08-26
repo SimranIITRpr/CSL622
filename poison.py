@@ -2,21 +2,26 @@
 Q.Find the best possible node to poison the graph with fake news assuming that
   a person reveals the information to a person he/she likes with some
   probability p, where 0<p<1
-
 Soln. We have used a probabilistic approach for finding the best possible node
       using a modified BFS algorithm.
-
+Update in solution:
+==================
+	We have now considered that each person has a different
+	probabilty of telling the news to the person he or she likes which is 
+	randomly geenerated in this program. Also, now we find the order of all
+	nodes with respect to their power of spreading information instead of
+	just finding the best node.      
 Group Memebers:
 Nitin Gandhi 2016csb1045
 Paras Kumar 2016csb1047
 Akshat Rathore 2016csb1030
-
 Test Run:
 >>python3 poison.py 
 Enter file name: 
 pagerank.txt
 Best node to poison the graph is: 3
 '''
+import random
 import collections
 
 #represents an edge in the graph
@@ -43,7 +48,7 @@ def BFS(vertexArray, adjList, node):
 			if(visited[vertexArray.index(k)] == False):
 				visited[vertexArray.index(k)] = True
 				q.append(k)
-				lst[vertexArray.index(k)] = lst[ind]*0.3
+				lst[vertexArray.index(k)] = lst[ind]*probArray[ind]
 	return sum(lst)
 
 #Main Script
@@ -69,6 +74,7 @@ for l in f:
 
 #removing duplicates
 vertexArray = sorted(list(set(vertexArray)))
+probArray = [random.random() for k in range(len(vertexArray))]
 size = len(vertexArray)
 
 #adjecency list represenataion to be used for BFS
@@ -91,13 +97,15 @@ for n,k in enumerate(adjList):
 max = 0
 
 #initalizing the best_vertex with a node number which is not present in graph
-best_vertex = -1
-
+best_verteces = {}
+values = []
 #Running modified BFS for each node of graph to find the best node
 for v in vertexArray:
 		val = BFS(vertexArray, adjList, v)
-		if max < val:
-			max = val
-			best_vertex = v
+		best_verteces[val] = v
+		values.append(val)
+values.sort(reverse = True)		
 #Final result
-print ("Best node to poison the graph is: " + str(best_vertex))
+print ("Ranking of nodes to poison the graph is: ")
+for key in values:
+	print (best_verteces[key])
