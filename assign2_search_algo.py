@@ -5,6 +5,12 @@ rishab(2014csb1027)
 rahul(2014csb1026)
 
 implemented search algorithm based on score of strongness
+input 
+search(of a node)
+
+output will be in this format
+
+list=[(search result 1(a node),score of strongness to that node,number of hops to reach the node)(search result2,...)...]
 '''
 import networkx as nx
 m=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,100,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34]
@@ -42,4 +48,5 @@ def search(nod):
  list4.sort(key=sortSecond,reverse=True)
  final_list=list1+list2+list3+list4
  return final_list
+#eg:
 print(list(search(1)))
