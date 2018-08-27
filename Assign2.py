@@ -1,36 +1,82 @@
-# -*- coding: utf-8 -*-
 """
-Created on Thu Aug 23 19:31:17 2018
 
-@author: Simran Setia (2017csz0001) and Amanjot Kaur(2017csz0014)
+ @ Author : Allu Krishna Sai Teja(2015csb1005) & N Nikhil (2015csb1020)
+The code builts upon Change_the_leader_position.py by @author: Meghana Batchu(2016csb1034), Sainath Thota(2015csb1037), Yugandhar Bandi(2015csb1009)
+ In that problem they find the minimum ranked node to remove to change ..
+the leader in the graph what we did was we changed the problem statement to finding minimum number of new connections needed .. 
+to make a given node 'x' to become the leader of the graph . we do this adding new connection between the given x and node ..
+with highest pagerank if it doesnot become leader we do the same with next node with highest page rank and so on until we make ..
+the given node 'x' the leader of the graph.
+ 
 
-This function calculates the prospective friends of less impressive person
-
-Steps. First of all, we calculated the pagerank values and find out least 
-impressive person. Then we calculated the prospective friends of least impressive
- person using Triadic Closure Property. Had he met these prospective friends,he wouldn't
- have been the least impressive person.
 """
 
 import networkx as nx
+import string
 import matplotlib.pyplot as plt
-G = nx.read_edgelist(r"C:\Users\hi\Desktop\pagerank.txt",create_using=nx.Graph(), nodetype = int)
-nx.draw(G)
-'''Page Rank calculation'''
-pr = nx.pagerank(G, alpha=0.9)
-plt.show()
-u=min(pr.values())
-print(u)
-for j in pr.keys():
-    if(pr[j]==u):
-        print(j)
-        break
-'''Calculation of prospective friends'''
-temp=[]
-for i in G.neighbors(j):
-    for x in G.neighbors(i):
-        if G.has_edge(j,x)==False:
-            if(x!=j and x not in temp):
-                temp.append(x)
-print(temp)
-            
+import operator
+
+
+
+
+def getKey(item):
+    return item[1]
+
+
+def Cal_Leader(Dictionary_of_pageranks):
+    maximum_page_rank = 0
+    leader = -1
+    for each in Dictionary_of_pageranks.items():
+        if(each[1]>maximum_page_rank):
+            maximum_page_rank = each[1]
+            leader = each[0]
+    return leader
+
+
+
+def Number_of_Edges_to_be_added(G,x) :
+    
+    D = nx.pagerank(G)
+    flag_for_break = 0;
+    sorted_D = sorted(D.items(), key=operator.itemgetter(1),reverse=True)
+    H = G.copy()
+    ans=0
+	
+    CLeader = Cal_Leader(D) 
+
+
+    for each in sorted_D :
+    
+        if x== CLeader :
+            flag_for_break = 1
+            break
+        if (each[0]!=x):
+            y=each[0]
+            if (~H.has_edge(x,y)):
+                H.add_edge(x,y,weight=1)
+                ans=ans+1
+        
+            if (~H.has_edge(y,x)):
+                H.add_edge(y,x,weight=1)
+                ans=ans+1
+        
+            D1 = nx.pagerank(H)
+            new_leader = Cal_Leader(D1)
+            if(new_leader == x):
+                flag_for_break = 1
+                break
+            D1.clear()
+        
+    if flag_for_break ==1 :
+        print("The number of connections to be added for node no "+ str(x)+ " to be leader is "+str(ans/2))
+    else :
+        print("Not Possible")
+    
+    
+
+G = nx.read_edgelist("pagerank.txt",create_using=nx.DiGraph(), nodetype=int)
+"""
+Change the value of x to your required node that you want to become leader.
+"""
+x=31
+Number_of_Edges_to_be_added(G,x)
