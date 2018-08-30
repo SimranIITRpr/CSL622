@@ -44,7 +44,7 @@ def friendly_neighbourhood(G):
 		total_index = 0
 		for successor_node in mutually_impressed_nodes(G,each):
 			total_index = total_index + num_of_mutually_impressed_nodes(G,successor_node)
-		final_data[each]=total_index/float(len(mutually_impressed_nodes(G,each)))
+		final_data[each]=total_index/float(len(mutually_impressed_nodes(G,each))+1)
 	return final_data
 
 
@@ -57,9 +57,24 @@ def print_most_and_least_friendly_neighbourhood(neighbourhood_index):
 	print most_friendly,"has the most friendly neighbourhood"
 	print least_friendly,"has the least friendly neighbourhood"
 
+#increases the friendly neighbourhood index of node n
+def increase_fn_index(G):
+	node = int(input("Enter a node whose fn is to be increased"))
+	nodes = G.nodes()
+	nodeWithMax = nodes.get(0)	
+	for each in nodes:
+		if G.degree(nodeWithMax) < G.degree(each):
+			nodeWithMax = each
+	G.add_path([node,nodeWithMax])
+	fd = friendly_neighbourhood(G)
+	fn_index = fd[node]
+	print(fn_index)
+
+	
+
 
 f = friendly_neighbourhood(G)
 print("The mapping:")
 print f
 print_most_and_least_friendly_neighbourhood(f)
-	
+increase_fn_index(G)	
