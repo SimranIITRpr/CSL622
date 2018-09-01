@@ -11,6 +11,9 @@ seem that a node with high node betweenness should have high edge betweenness bu
 the case.
 
 '''
+#! /usr/bin/python
+import networkx as nx
+import matplotlib.pyplot as plt
 def centralityEdgeMeasure():
     G = nx.read_adjlist('pagerank.txt',nodetype = int,create_using = nx.DiGraph())
     centralities2 = []
