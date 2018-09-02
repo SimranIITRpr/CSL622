@@ -22,9 +22,7 @@ G = nx.read_edgelist(r"web-google.csv", create_using = nx.DiGraph(), nodetype = 
 #nx.draw(G, with_labels = True)
 #plt.show()
 
-'''
-	Total walks will be 3rd power of the number of nodes in the graph
-'''
+
 nodes = G.nodes()
 count = {node:0 for node in nodes}
 
@@ -35,14 +33,19 @@ def teleporting():
 
 random_node = random.choice(list(nodes))
 
+'''
+	Total walks will be square of the number of nodes in the graph
+'''
+
 for times in range(len(nodes)**2):
+	''' randomly deciding whether to teleport with p = 0.2 or not '''
 	teleport = choice([True, False], 1, p=[0.2, 0.8])
-	if teleport:
+	if teleport:	#if teleport is True call teleporting function
 		random_node = teleporting()
 		count[random_node]+=1
-	else:
+	else:		# else get all the neighbors of the current node 
 		successors = list(G.successors(random_node))
-		if len(successors) == 0:
+		if len(successors) == 0:	# if no neighbors then teleport
 			random_node = teleporting()
 			count[random_node]+=1
 		else:
@@ -52,7 +55,7 @@ for times in range(len(nodes)**2):
 sortedcount = sorted(count.items(), key=lambda x: x[1], reverse = True)
 page_rank = sorted(nx.pagerank(G).items(), key=lambda x: x[1], reverse = True)
 
-print "pagerank using randomwalk","   -   ","pagerank using networkx function"
+print "pagerank using randomwalk","   -   ","pagerank using networkx function\n"
 
 for (randomwalk, pgval),(pagerank, pgval) in zip(sortedcount, page_rank):
 	print randomwalk,"    -     ",pagerank
