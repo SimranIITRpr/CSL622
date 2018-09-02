@@ -33,7 +33,7 @@ print (y)
 print ("Required edges : ")
 print (y[1]-y[0])           #Printing the number of required edges.
 
-list2 = G.in_edges(y[0])    #Getting the list of incoming edges of the least impressive.
+list2 = G.neighbors(y[0])    #Getting the list of incoming edges of the least impressive.
 nodesList = G.nodes()
 count = 0
 
