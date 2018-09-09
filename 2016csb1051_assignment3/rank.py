@@ -37,6 +37,7 @@ for pr in tup:
 	print pr[0],'=',pr[1]					#Printing the result.
 print "Pagerank given by the inbuilt function."
 t = nx.pagerank(g, alpha=0.2)					#Getting the inbuilt pagerank.
+print t
 list1 = []
 for i in range(len(g.nodes())):
 	list1.append(t[i])
