@@ -36,4 +36,9 @@ tup.sort(key=lambda x: x[1])					#Making the dictionary of the result.
 for pr in tup:
 	print pr[0],'=',pr[1]					#Printing the result.
 print "Pagerank given by the inbuilt function."
-nx.pagerank(g, alpha=0.2)
+t = nx.pagerank(g, alpha=0.2)					#Getting the inbuilt pagerank.
+list1 = []
+for i in range(len(g.nodes())):
+	list1.append(t[i])
+plt.plot(list1,trackList)					#Plotting the data.
+plt.show()
