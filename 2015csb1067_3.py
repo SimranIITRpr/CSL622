@@ -3,6 +3,7 @@
 Created on Mon Sep  3 09:53:30 2018
 
 @author: nittin pc
+The link for dataset is 'https://snap.stanford.edu/data/wiki-Vote.html'
 """
 
 import networkx as nx
