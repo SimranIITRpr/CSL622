@@ -1,4 +1,4 @@
-0import networkx as nx
+import networkx as nx
 import random
 import operator
 #Data Set Downloaded from http://snap.stanford.edu/data/web-Stanford.html
