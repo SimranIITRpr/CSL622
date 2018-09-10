@@ -1,7 +1,7 @@
 import networkx as nx
 
 '''
-	Author: Pankaj Verma & Pratik Chhajer
+	Author: Pankaj Verma & Pratik Chhajer & Krishnendu Sahu
 	Date: 21/08/2018
 
 	This function finds the pagerank value for each node 
