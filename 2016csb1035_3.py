@@ -23,9 +23,11 @@ print(n)
 #array to store ranks of all nodes
 rank={}
 Z={}
+pr={}
 for i in N:
     rank[i]=0
     Z[i]=0
+    pr[i]=0
 #print(len(rank))#check
 current=random.choice(N)
 rank[current] = 1 
