@@ -1,3 +1,12 @@
+'''
+Assignment 4
+Paras Kumar
+2016csb1047
+
+To Run
+======
+python3 Assignment_4_2016csb1047.py
+'''
 from __future__ import print_function
 import networkx as nx
 import matplotlib.pyplot as plt
