@@ -1,8 +1,8 @@
 """
 Name: Ganesh Prasad - 2018csm1008
-Assignment: 4
+enrolment number: Assignment: 4
 
-Derived 2 Communities by removing edges with high betweenness
+Derived n Communities by removing edges with high betweenness
 
 run:
 
