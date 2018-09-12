@@ -1,6 +1,6 @@
 #2018CSM1017_Rakesh_Kumar_Meena#
 #Communities detection of karate network using edge betweenness#
-#We sucessfuly find the result  after spliting graph 
+#sucessfuly find the result  after spliting graph 
 #based on removing max visited coomon paths between nodes until we get two spliting Graph
 
 #comm_detection
