@@ -43,8 +43,6 @@ def find_Communities(G):
 
 """Loading the Karate Network and finding the Communities"""
 G = nx.karate_club_graph()
-nx.draw(G)
-plt.show()
 components = find_Communities(G)
 nx.draw(G)
 plt.show()
