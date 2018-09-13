@@ -37,7 +37,7 @@ def Find_Comunnites(G) :
     while (nx.is_connected(G)):
             Betweens=Edge_Betweennes(G)
             
-            j=0
+            #j=0
             maxB=-1
             for E in list(G.edges()) :
                 if(Betweens[E]>=maxB) :    
