@@ -2,11 +2,11 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import random as rand
 
-
+count = {}
 #deciding which edge to remove on the basis of betweeness centrality
 def edge_to_remove(G, V, E):
 	n = G.number_of_nodes()
-
+	
 	for i in E:
 		count[i] = 0
 
