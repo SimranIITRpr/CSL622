@@ -2,7 +2,7 @@ import operator
 import matplotlib.pyplot as plt
 import networkx as nx
 
-# Note: Some of the code has been taken from the video lecture
+# Note: Some of the code has been taken from the video lecture of Social Networks
 def edge_to_remove(G):
 	dictionary = {}
 	for each in G.edges():
