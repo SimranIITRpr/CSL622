@@ -11,15 +11,15 @@ def edge_to_remove(G):
 	for i in range(G.number_of_nodes()):
 		for j in range(G.number_of_nodes()):
 			if(i>j):
-				x = list(nx.all_shortest_paths(G,i,j)) #finding the total paths between the nodes
-				for k in range(len(x)):
-					for p in range(len(x[k])-1):
-						key = (x[k][p],x[k][p+1])
-						key1 = (x[k][p+1],x[k][p])
+				paths = list(nx.all_shortest_paths(G,i,j)) #finding the total paths between the nodes
+				for k in range(len(paths)):
+					for p in range(len(paths[k])-1):
+						key = (paths[k][p],paths[k][p+1])
+						key1 = (paths[k][p+1],paths[k][p])
 						if key in dictionary:
-							dictionary[x[k][p],x[k][p+1]] = dictionary[x[k][p],x[k][p+1]] + 1
+							dictionary[paths[k][p],paths[k][p+1]] = dictionary[paths[k][p],paths[k][p+1]] + 1
 						else:
-							dictionary[x[k][p+1],x[k][p]] = dictionary[x[k][p+1],x[k][p]] + 1
+							dictionary[paths[k][p+1],paths[k][p]] = dictionary[paths[k][p+1],paths[k][p]] + 1
 	
 	max = 0
 	for each in dictionary.items():
