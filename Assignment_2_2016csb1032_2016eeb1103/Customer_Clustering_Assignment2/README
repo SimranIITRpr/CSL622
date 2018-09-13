@@ -1,0 +1,22 @@
+
+
+Clustering of PEOPLe on basis of (earning,spending) HABIT Matrix
+Requirements=sklearn
+
+
+USE => Predict the Likelyhood of forming friendships in compltely new enviroment on basis of their previous money spending habit  
+
+Requirements => 
+	matplotlib
+	sklearn
+
+THE PYTHON PROGRAMME FORMS GROUPS BY THE MEANS OF K-MEANS CLUSTURING WHICH HAS TO ENTERED MANUALLY 
+
+(A technique of Unsupervised Learning on Graph)
+Algorithm = > 
+	Finds Cluster of People on the basis of their (earning,spending)  by Recursively producing K-Centroids optimizing distances of
+	nodes to nearest cluster till no-such significant optimazation is possible.
+
+Requirements => 
+	matplotlib
+	sklearn	 
