@@ -1,0 +1,2 @@
+NAME INPUT GRAPH/FILE AS : "input.txt"
+RUN SCRIPT AS : "python 2016csb1032.py"
