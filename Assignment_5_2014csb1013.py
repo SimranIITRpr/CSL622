@@ -1,6 +1,6 @@
 import networkx as nx
 import matplotlib.pyplot as plt
-from itertools import combinations
+from itertools import permutations
 G=nx.Graph()
 #creating dictionary mydict and storing nodes as keys and tuples as values manually
 #no reading from input
@@ -23,7 +23,7 @@ nod=list(mydict.keys())
 #creating a list of nodes from keys of mydict
 G.add_nodes_from(nod)
 #making a list of all possible pairings between nodes of the graph
-x=list(combinations(G.nodes(),2))
+x=list(permutations(G.nodes(),2))
 c=len(x)
 #one by one taking pair from x and check wether there is tuple of that pair whose vakue is 1
 #counting number of tuples having value 1 and if they have such tuple then adding an edge between pair of nodes with weight n 
