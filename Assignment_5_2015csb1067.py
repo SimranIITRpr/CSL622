@@ -6,7 +6,7 @@ Created on Mon Sep 17 21:33:30 2018
 """
 import networkx as nx
 
-
+# there is an ambiguity in the question The approach that i have followed I have mentioned as follows
 # here we are reading the graph and then giving weights to the graph as per their overlap 
 # the path that is returned by the best_path() is the shortest path with maximum weight
 # that is first we find the shortest paths if multiple then we find one with maximum sum of weight 
