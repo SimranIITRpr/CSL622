@@ -44,7 +44,7 @@ for i in range(b):
 nx.draw(G,with_labels = True, node_color = 'b')
 plt.show()
 #finding the shortest path according to number of subjects they have in common
-for x in itertools.combinations(c,2):
+for x in itertools.permutations(c,2):
     s=[]
     t=0
     for p in nx.all_shortest_paths(G,source=x[0],target=x[1]):
